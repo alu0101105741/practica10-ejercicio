@@ -3,7 +3,7 @@ import yargs = require('yargs');
 
 const client = connect({port: 60300});
 
-client.emit('request', process.argv[2]);
+client.write(process.argv[2]);
 
 client.on('close', () => {
   console.log('Disconnected.');
