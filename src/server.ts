@@ -5,7 +5,7 @@ net.createServer((connection) => {
   console.log('A client has connected.');
 
   connection.on('data', (data) => {
-    fs.appendFileSync('./dist/mensajes.txt', 'Remote port: ' + connection.remotePort + ' ' + 'Remote ip: ' + connection.remoteAddress + ' ' + 'Message: ' + data.toString());
+    fs.appendFileSync('./dist/mensajes.txt', '{Port: ' + connection.remotePort + ', ' + 'Ip: ' + connection.remoteAddress + ', ' + 'Message: ' + data.toString() + '}\n');
 
     connection.write('Message succesfully received!');
   });
